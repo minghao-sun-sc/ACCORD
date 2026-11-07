@@ -1,0 +1,55 @@
+{
+  "description": "NUPACK 4 invocation used by ACCORD. Every call is nupack.mfe(strands=[seq], model=nupack.Model(...)) on a single strand; ties among co-optimal MFE structures are broken by taking the lexicographically smallest dot-bracket string. 'canonical' is the only primary configuration; the others are sensitivity arms and are reported under their own names.",
+  "configurations": {
+    "canonical": {
+      "material": "rna",
+      "celsius": 37.0,
+      "sodium": 1.0,
+      "magnesium": 0.0,
+      "ensemble": "stacking",
+      "wc_only_filter": false,
+      "primary": true,
+      "notes": "Package-default RNA parameters at 37 C, 1 M Na+, no Mg2+."
+    },
+    "rna99": {
+      "material": "rna99",
+      "celsius": 37.0,
+      "sodium": 1.0,
+      "magnesium": 0.0,
+      "ensemble": "stacking",
+      "wc_only_filter": false,
+      "primary": false,
+      "notes": "Mathews 1999 RNA parameter set."
+    },
+    "wc_only": {
+      "material": "rna",
+      "celsius": 37.0,
+      "sodium": 1.0,
+      "magnesium": 0.0,
+      "ensemble": "stacking",
+      "wc_only_filter": true,
+      "primary": false,
+      "notes": "Canonical parameters; pairs that are not Watson-Crick or GU are removed from both the prediction and the reference before scoring."
+    },
+    "celsius_25": {
+      "material": "rna",
+      "celsius": 25.0,
+      "sodium": 1.0,
+      "magnesium": 0.0,
+      "ensemble": "stacking",
+      "wc_only_filter": false,
+      "primary": false,
+      "notes": "Temperature arm (25 C)."
+    },
+    "mg_0p01": {
+      "material": "rna",
+      "celsius": 37.0,
+      "sodium": 1.0,
+      "magnesium": 0.01,
+      "ensemble": "stacking",
+      "wc_only_filter": false,
+      "primary": false,
+      "notes": "Divalent-salt arm (10 mM Mg2+)."
+    }
+  }
+}

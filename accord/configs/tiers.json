@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "panel": ["vienna", "eternafold", "contrafold"],
+  "statistic": "sample standard deviation (ddof=1) of target MCC across the three tier-panel oracles",
+  "gate": {
+    "statistic": "maximum target MCC across the three tier-panel oracles",
+    "threshold": 0.5,
+    "purpose": "designs that fail on every oracle are shared failures; they receive no tier"
+  },
+  "cuts": {
+    "high_below": 0.05,
+    "low_above": 0.15,
+    "rule": "High if D < 0.05; Moderate if 0.05 <= D <= 0.15; Low if D > 0.15"
+  },
+  "calibration": {
+    "cohort": "Ribonanza GPN15k sub-library, 2A3 SHAPE, 14,271 sequences in 99 construct clusters",
+    "statistic": "mean per-position standard deviation (ddof=0) of paired/unpaired calls across the three oracles; the cohort has no design target, so target MCC is undefined there",
+    "transfer": "OpenKnotAIDesignData (25,930 designs, 13 entries): with the gate applied, the target-MCC statistic above keeps the monotone High > Moderate > Low ordering of mean SHAPE AUC under the same cut-offs"
+  },
+  "scope": [
+    "Tiers apply only to the three-oracle panel above. A different panel, the family-balanced statistic, or another oracle configuration inherits no cut-offs without recalibration.",
+    "Tiers describe structural risk calibrated retrospectively against SHAPE-derived pairing accuracy. They do not predict biological function and are not calibrated for 3D structure.",
+    "Rank candidates by Q_mean or Q_worst; use the tier as a robustness flag, not as a quality ranking."
+  ]
+}

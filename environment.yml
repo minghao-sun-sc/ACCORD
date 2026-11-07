@@ -1,0 +1,23 @@
+name: accord
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - viennarna=2.7.0
+  - numpy
+  - pandas
+  - scipy
+  - pytest
+  - make
+  - perl
+  - cxx-compiler
+  - git
+  - pip
+  - pip:
+      - -e .
+# After creating the env:
+#   bash scripts/install_eternafold.sh            # EternaFold/CONTRAfold binary, pinned commit
+#   conda env config vars set ACCORD_ETERNAFOLD_HOME=$PWD/external/EternaFold
+# NUPACK 4.0 needs a free academic licence: download the wheel from
+# https://www.nupack.org and `pip install` it into this env.

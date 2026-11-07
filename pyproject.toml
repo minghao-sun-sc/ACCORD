@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "accord-rna"
+version = "2.0.0"
+description = "ACCORD: cross-oracle evaluation protocol for computational RNA secondary-structure design"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+  { name = "Lawrence Minghao Sun" },
+  { name = "Hanqun Cao" },
+  { name = "Fang Wu" },
+  { name = "Zhou Zhang" },
+  { name = "Zhiyuan Liu" },
+  { name = "Tianfan Fu" },
+  { name = "Pheng-Ann Heng" },
+  { name = "Yang Zhang" },
+]
+keywords = ["RNA design", "evaluation", "secondary structure", "self-consistency", "benchmark"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = ["numpy>=1.23", "pandas>=1.5", "scipy>=1.9"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Repository = "https://github.com/minghao-sun-sc/ACCORD"
+
+[project.scripts]
+accord = "accord.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["accord*"]
+
+[tool.setuptools.package-data]
+accord = ["configs/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["oracles: needs ViennaRNA, EternaFold and CONTRAfold installed"]
